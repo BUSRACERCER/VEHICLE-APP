@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminService {
     final HttpServletRequest req;
     public Boolean login(Admin admin){
-        if (admin.getEmail().equals("cz@cz.com") && admin.getPassword().equals("123")){
+        if (admin.getEmail().equals("busra_cercer@mobiliz.com") && admin.getPassword().equals("123")){
             req.getSession().setAttribute("user",admin.getEmail());
             return true;
 

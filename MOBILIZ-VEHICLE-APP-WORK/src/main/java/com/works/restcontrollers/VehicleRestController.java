@@ -3,8 +3,10 @@ package com.works.restcontrollers;
 import com.works.entities.Vehicle;
 import com.works.services.VehicleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -12,28 +14,27 @@ import java.util.List;
 @RequestMapping("/vehicle")
 public class VehicleRestController {
     final VehicleService vehicleService;
-    private Long updateID = 0l;
+
     @PostMapping("/save")
-    public Vehicle save(@RequestBody Vehicle vehicle){
+    public ResponseEntity save(@Valid @RequestBody Vehicle vehicle) {
         return vehicleService.save(vehicle);
     }
 
     @GetMapping("/list")
-    public List<Vehicle> list(){
+    public ResponseEntity list() {
         return vehicleService.list();
 
     }
 
     @PostMapping("/update")
-    public String vehicleUpdate(Vehicle vehicle){
-        vehicle.setVid(updateID);
-        vehicleService.updateVehicle(vehicle);
-        return "redirect:/list";
+    public ResponseEntity vehicleUpdate(@RequestBody Vehicle vehicle) {
+
+        return vehicleService.updateVehicle(vehicle);
     }
 
     @GetMapping("/delete")
-    public String deleteVehicle( @PathVariable Long vid,@PathVariable Long uid){
-        boolean status = vehicleService.deleteVehicle(vid,uid);
+    public String deleteVehicle(@PathVariable Long vid, @PathVariable Long uid) {
+        boolean status = vehicleService.deleteVehicle(vid, uid);
         return "redirect:/list";
     }
 

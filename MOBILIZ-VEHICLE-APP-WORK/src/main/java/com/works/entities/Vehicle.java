@@ -34,6 +34,10 @@ public class Vehicle {
     private String modelYear;
 
     private Long uid;
+    @ManyToMany
+    private  List<Customer> customers;
+    @ManyToMany
+    private List<VehicleGroup> vehicleGroups;
 
 
 }

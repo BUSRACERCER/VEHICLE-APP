@@ -13,7 +13,7 @@ public class CustomerRestContrroller {
     final CustomerService customerService;
 
     @PostMapping("/register")
-     public Customer register(@RequestBody Customer customer){
+    public Customer register(@RequestBody Customer customer) {
         return customerService.register(customer);
     }
 }

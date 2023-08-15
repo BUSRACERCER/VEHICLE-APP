@@ -17,7 +17,7 @@ public class AdminRestController {
     final AdminService adminService;
 
     @PostMapping("/login")
-    public boolean login(@RequestBody Admin admin){
+    public boolean login(@RequestBody Admin admin) {
         return adminService.login(admin);
 
     }

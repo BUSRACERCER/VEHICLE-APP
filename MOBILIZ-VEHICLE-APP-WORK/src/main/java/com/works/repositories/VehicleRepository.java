@@ -7,6 +7,4 @@ import org.springframework.data.jpa.repository.Query;
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     boolean existsByVidEqualsAndUidEquals(Long vid, Long uid);
 
-
-
 }
